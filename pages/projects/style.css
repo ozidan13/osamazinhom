@@ -1,0 +1,72 @@
+/* Projects page specific styles */
+
+.glass-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured project cards */
+.glass-card.overflow-hidden {
+    border-radius: 0.75rem;
+}
+
+/* Project tags */
+.px-3.py-1.bg-indigo-100 {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.px-3.py-1.bg-indigo-100:hover {
+    background-color: rgba(99, 102, 241, 0.2);
+}
+
+/* Animation for project cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid.grid-cols-1.gap-12 > div:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.grid.grid-cols-1.gap-12 > div:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.gap-8 > div {
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.gap-8 > div:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.gap-8 > div:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.gap-8 > div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.gap-8 > div:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.gap-8 > div:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.gap-8 > div:nth-child(6) {
+    animation-delay: 0.9s;
+} 

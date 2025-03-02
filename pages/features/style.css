@@ -4,44 +4,88 @@
 
 .features-page .features-header {
     text-align: center;
-    margin-bottom: var(--features-spacing);
+    margin-bottom: var(--spacing-xl);
+    animation: slideIn var(--transition-medium) ease-out;
 }
 
 .features-page .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--features-spacing);
-    padding: var(--features-spacing) 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl) 0;
+    animation: fadeIn var(--transition-medium) ease-out 0.2s;
+    perspective: 1000px;
 }
 
 .features-page .feature-card {
-    background: white;
-    border-radius: 8px;
-    padding: var(--features-spacing);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    padding: var(--spacing-lg);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    backdrop-filter: blur(12px);
+    transition: all var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
+    animation: float var(--transition-slow) ease-in-out infinite;
+    animation-delay: calc(var(--animation-order) * 0.1s);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.features-page .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(192, 38, 211, 0.1));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-medium) ease;
 }
 
 .features-page .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02) rotateX(5deg);
+    box-shadow: 0 12px 48px var(--glass-shadow);
+    background: linear-gradient(135deg, var(--glass-bg), rgba(255, 255, 255, 0.2));
+}
+
+.features-page .feature-card:hover::before {
+    opacity: 1;
 }
 
 .features-page .feature-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: transform var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(20px);
+    font-size: 2.5rem;
+}
+
+.features-page .feature-card:hover .feature-icon {
+    transform: translateZ(30px) scale(1.1) rotate(5deg);
 }
 
 .features-page .feature-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: translateZ(15px);
 }
 
 .features-page .feature-description {
-    color: var(--secondary-color);
-    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.8;
+    transform: translateZ(10px);
 }

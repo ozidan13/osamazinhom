@@ -3,13 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PureJS - Osama</title>
+    <meta name="description" content="Senior Software Engineer & UI/UX Designer specializing in MERN Stack Development">
+    <meta name="keywords" content="Software Engineer, MERN Stack, UI/UX Design, Web Development">
+    <meta name="author" content="Osama Zinhom">
+    <title>Osama Zinhom - Senior Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./global.css">
     <script>
         tailwind.config = {
             theme: {
-                extend: {}
+                extend: {
+                    animation: {
+                        'fadeIn': 'fadeIn 0.5s ease-in',
+                        'slideIn': 'slideIn 0.5s ease-out',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    },
+                    colors: {
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-border': 'rgba(255, 255, 255, 0.2)'
+                    }
+                }
             }
         }
     </script>
