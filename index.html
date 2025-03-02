@@ -45,10 +45,30 @@
     </script>
     <script>
         // Check for saved dark mode preference on page load
-        if (localStorage.getItem('darkMode') === 'enabled' || 
-            (localStorage.getItem('darkMode') === null && 
-             window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
+        function initDarkMode() {
+            if (localStorage.getItem('darkMode') === 'enabled' || 
+                (localStorage.getItem('darkMode') === null && 
+                 window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        
+        // Initialize dark mode
+        initDarkMode();
+        
+        // Listen for changes in system preference
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (localStorage.getItem('darkMode') === null) {
+                    if (e.matches) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+                }
+            });
         }
     </script>
 </head>

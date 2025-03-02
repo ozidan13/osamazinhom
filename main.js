@@ -14,6 +14,18 @@ function loadPageStyles(pageName) {
   document.head.appendChild(pageStyle);
 }
 
+// Function to toggle dark mode
+function toggleDarkMode() {
+  document.documentElement.classList.toggle('dark');
+  
+  // Save preference to localStorage
+  if (document.documentElement.classList.contains('dark')) {
+    localStorage.setItem('darkMode', 'enabled');
+  } else {
+    localStorage.setItem('darkMode', 'disabled');
+  }
+}
+
 // Function to navigate to a page
 function navigateTo(pageName) {
   // ... existing code ...
@@ -40,6 +52,17 @@ function navigateTo(pageName) {
         revealElements.forEach(element => {
           element.classList.add('revealed');
         });
+        
+        // Re-initialize dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (darkModeToggle) {
+          // Remove any existing event listeners
+          const newDarkModeToggle = darkModeToggle.cloneNode(true);
+          darkModeToggle.parentNode.replaceChild(newDarkModeToggle, darkModeToggle);
+          
+          // Add new event listener
+          newDarkModeToggle.addEventListener('click', toggleDarkMode);
+        }
       }, 300);
       
       // ... existing code ...
@@ -121,6 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const pageName = pageLink.getAttribute('data-page').replace('/', '');
       navigateTo(pageName);
       window.location.hash = pageName;
+    }
+    
+    // Handle dark mode toggle clicks
+    if (e.target.closest('#darkModeToggle')) {
+      toggleDarkMode();
     }
   });
   

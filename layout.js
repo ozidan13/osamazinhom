@@ -79,6 +79,18 @@ export function Layout(content, pages = []) {
         </div>
         
         <script>
+            // Function to toggle dark mode
+            function toggleDarkMode() {
+                document.documentElement.classList.toggle('dark');
+                
+                // Save preference to localStorage
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            }
+            
             // Simple toggle function for mobile menu
             function toggleMobileMenu() {
                 const mobileMenu = document.getElementById('mobileMenu');
@@ -125,43 +137,8 @@ export function Layout(content, pages = []) {
                 const darkModeToggle = document.getElementById('darkModeToggle');
                 if (darkModeToggle) {
                     darkModeToggle.addEventListener('click', function() {
-                        document.documentElement.classList.toggle('dark');
-                        
-                        // Save preference to localStorage
-                        if (document.documentElement.classList.contains('dark')) {
-                            localStorage.setItem('darkMode', 'enabled');
-                        } else {
-                            localStorage.setItem('darkMode', 'disabled');
-                        }
+                        toggleDarkMode();
                     });
-                }
-            });
-            
-            // Also handle clicks after page navigation
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('#mobileMenuButton')) {
-                    e.preventDefault();
-                    toggleMobileMenu();
-                }
-                
-                if (e.target.closest('#mobileMenu a')) {
-                    setTimeout(function() {
-                        const mobileMenu = document.getElementById('mobileMenu');
-                        if (mobileMenu && !mobileMenu.classList.contains('mobile-menu-hidden')) {
-                            toggleMobileMenu();
-                        }
-                    }, 100);
-                }
-                
-                if (e.target.closest('#darkModeToggle')) {
-                    document.documentElement.classList.toggle('dark');
-                    
-                    // Save preference to localStorage
-                    if (document.documentElement.classList.contains('dark')) {
-                        localStorage.setItem('darkMode', 'enabled');
-                    } else {
-                        localStorage.setItem('darkMode', 'disabled');
-                    }
                 }
             });
         </script>
@@ -193,6 +170,18 @@ async function initializeApp() {
         document.head.appendChild(styleLink);
     }
 
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark');
+        
+        // Save preference to localStorage
+        if (document.documentElement.classList.contains('dark')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    }
+
     async function loadPage(path) {
         try {
             // Add loading state
@@ -221,16 +210,12 @@ async function initializeApp() {
             // Initialize dark mode toggle after page load
             const darkModeToggle = document.getElementById('darkModeToggle');
             if (darkModeToggle) {
-                darkModeToggle.addEventListener('click', function() {
-                    document.documentElement.classList.toggle('dark');
-                    
-                    // Save preference to localStorage
-                    if (document.documentElement.classList.contains('dark')) {
-                        localStorage.setItem('darkMode', 'enabled');
-                    } else {
-                        localStorage.setItem('darkMode', 'disabled');
-                    }
-                });
+                // Remove any existing event listeners
+                const newDarkModeToggle = darkModeToggle.cloneNode(true);
+                darkModeToggle.parentNode.replaceChild(newDarkModeToggle, darkModeToggle);
+                
+                // Add new event listener
+                newDarkModeToggle.addEventListener('click', toggleDarkMode);
             }
             
             // Initialize mobile menu toggle
@@ -240,7 +225,12 @@ async function initializeApp() {
             const closeIcon = document.getElementById('closeIcon');
             
             if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
-                mobileMenuButton.addEventListener('click', function() {
+                // Remove any existing event listeners
+                const newMobileMenuButton = mobileMenuButton.cloneNode(true);
+                mobileMenuButton.parentNode.replaceChild(newMobileMenuButton, mobileMenuButton);
+                
+                // Add new event listener
+                newMobileMenuButton.addEventListener('click', function() {
                     if (mobileMenu.classList.contains('mobile-menu-hidden')) {
                         // Show menu
                         mobileMenu.classList.remove('mobile-menu-hidden');
@@ -326,51 +316,4 @@ async function initializeApp() {
 
 // Initialize the application when the DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeApp);
-
-// Start the application
-initializeApp();
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const root = document.getElementById('root');
-    
-    // Define available pages with new URL-style paths
-    const pages = ['/', '/about', '/projects', '/experience', '/contact'];
-    
-    // Initial render with home page
-    const HomePage = (await import('./pages/page.js')).default;
-    root.innerHTML = Layout(HomePage(), pages);
-
-    // Handle navigation
-    document.addEventListener('click', async (e) => {
-        if (e.target.matches('[data-page]')) {
-            e.preventDefault();
-            const page = e.target.getAttribute('data-page');
-            
-            try {
-                let modulePath;
-                if (page === '/') {
-                    modulePath = './pages/page.js';
-                } else {
-                    const pageName = page.substring(1);
-                    modulePath = `./pages/${pageName}/page.js`;
-                }
-                
-                const module = await import(modulePath);
-                const content = await module.default();
-                root.innerHTML = Layout(content, pages);
-                
-                window.location.hash = page;
-            } catch (error) {
-                console.error('Error loading page:', error);
-            }
-        }
-    });
-    
-    // Handle initial load based on URL hash
-    const initialPage = window.location.hash.slice(1) || '/';
-    const pageLink = document.querySelector(`[data-page="${initialPage}"]`);
-    if (pageLink) {
-        pageLink.click();
-    }
-});
 
