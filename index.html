@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./global.css">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     animation: {
@@ -34,14 +35,24 @@
                     },
                     colors: {
                         'glass': 'rgba(255, 255, 255, 0.1)',
-                        'glass-border': 'rgba(255, 255, 255, 0.2)'
+                        'glass-border': 'rgba(255, 255, 255, 0.2)',
+                        'dark-glass': 'rgba(17, 24, 39, 0.7)',
+                        'dark-glass-border': 'rgba(55, 65, 81, 0.3)'
                     }
                 }
             }
         }
     </script>
+    <script>
+        // Check for saved dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled' || 
+            (localStorage.getItem('darkMode') === null && 
+             window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
     <div id="root"></div>
     
     <!-- Main application entry point -->

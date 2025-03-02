@@ -1,54 +1,142 @@
 /* Contact page specific styles */
 
-/* Form animations */
+/* Text reveal animations */
+.reveal-text, .reveal-text-delay {
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    filter: blur(10px);
+}
+
+.reveal-text.revealed, .reveal-text-delay.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.reveal-text-delay {
+    transition-delay: 0.2s;
+}
+
+/* Card animations */
+.fade-in-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-card-delay {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.fade-in-card-delay-2 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.fade-in-card-delay-3 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
+        filter: blur(10px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
     }
 }
 
+/* Glass card styles */
 .glass-card {
-    animation: fadeInUp 0.6s ease-out both;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.grid.grid-cols-1.md\:grid-cols-2.gap-12 > div:nth-child(1) .glass-card {
-    animation-delay: 0.1s;
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.grid.grid-cols-1.md\:grid-cols-2.gap-12 > div:nth-child(2) .glass-card:nth-child(1) {
-    animation-delay: 0.3s;
-}
-
-.grid.grid-cols-1.md\:grid-cols-2.gap-12 > div:nth-child(2) .glass-card:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-/* Form input focus effects */
-input, textarea {
+/* Form element animations */
+.form-group input, 
+.form-group textarea {
     transition: all 0.3s ease;
 }
 
-input:focus, textarea:focus {
+.form-group input:focus, 
+.form-group textarea:focus {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
-    border-color: #6366F1;
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.1);
+}
+
+/* Social media links */
+.grid.grid-cols-2.gap-4 a {
+    transition: all 0.3s ease;
+}
+
+.grid.grid-cols-2.gap-4 a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.grid.grid-cols-2.gap-4 a:hover svg {
+    transform: scale(1.1);
+    color: #4F46E5;
+}
+
+/* Success message animation */
+#success-message {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Progressive blur effects */
+.glass-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 50%, rgba(255, 255, 255, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+}
+
+.glass-card:hover::after {
+    opacity: 1;
 }
 
 /* Button hover effects */
 button[type="submit"] {
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
 
 button[type="submit"]::after {
@@ -65,7 +153,7 @@ button[type="submit"]::after {
     transform-origin: 50% 50%;
 }
 
-button[type="submit"]:focus:not(:active)::after {
+button[type="submit"]:hover::after {
     animation: ripple 1s ease-out;
 }
 
@@ -75,51 +163,18 @@ button[type="submit"]:focus:not(:active)::after {
         opacity: 0.5;
     }
     100% {
-        transform: scale(20, 20);
+        transform: scale(100, 100);
         opacity: 0;
     }
 }
 
-/* Social media links hover effects */
-.grid.grid-cols-2.gap-4 a {
-    transition: all 0.3s ease;
-}
-
-.grid.grid-cols-2.gap-4 a:hover {
-    transform: translateY(-5px);
-}
-
-/* Success message animation */
-#formSuccess {
-    animation: slideDown 0.5s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+/* Media queries */
+@media (max-width: 768px) {
+    .grid.grid-cols-1.lg\:grid-cols-2.gap-12 {
+        grid-template-columns: 1fr;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .grid.grid-cols-2.gap-4 {
+        grid-template-columns: 1fr;
     }
-}
-
-/* Contact info hover effects */
-.flex.items-start {
-    transition: transform 0.3s ease;
-}
-
-.flex.items-start:hover {
-    transform: translateX(5px);
-}
-
-/* SVG icon animations */
-.flex-shrink-0 svg {
-    transition: transform 0.3s ease;
-}
-
-.flex.items-start:hover .flex-shrink-0 svg {
-    transform: scale(1.2);
-    color: #4F46E5;
 } 

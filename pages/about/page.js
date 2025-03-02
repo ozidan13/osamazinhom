@@ -8,8 +8,9 @@ export default function About() {
                 <div class="glass-card p-8 mb-12">
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="md:w-1/3">
-                            <div class="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-8xl font-bold">
-                                OZ
+                            <div class="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-600 relative">
+                                <img src="./assets/profile.jpg" alt="Osama Zinhom" class="w-full h-full object-cover" />
+                                <div class="absolute inset-0 gradient-overlay opacity-20"></div>
                             </div>
                         </div>
                         <div class="md:w-2/3">
@@ -19,8 +20,11 @@ export default function About() {
                                 Results-driven Senior Software Engineer with over 5 years of expertise in developing intuitive, 
                                 user-friendly, and scalable web applications. Adept at using modern technologies like MERN Stack 
                                 (MongoDB, ExpressJS, ReactJS, NodeJS), UI/UX design, and cloud-based solutions. Proven ability to 
-                                deliver innovative solutions in collaboration with cross-functional teams. Strong focus on performance 
-                                optimization and user-centric design.
+                                lead teams, manage projects, and deliver high-quality solutions that meet client requirements.
+                            </p>
+                            <p class="text-gray-600">
+                                Passionate about creating elegant, efficient, and user-centered digital experiences. 
+                                Constantly learning and exploring new technologies to stay at the forefront of web development.
                             </p>
                             <div class="flex flex-wrap gap-4">
                                 <div class="flex items-center text-gray-600">
@@ -47,167 +51,145 @@ export default function About() {
                 </div>
                 
                 <!-- Education Section -->
-                <div class="mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Education</h2>
-                    <div class="glass-card p-6">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-indigo-600">Bachelor of Science in Computer Science</h3>
-                                <p class="text-gray-600">Sadat Academy for Management sciences, Minya, Egypt</p>
-                            </div>
-                            <div class="text-gray-500 mt-2 md:mt-0">June 2023</div>
+                <div class="glass-card p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Education</h2>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-lg">
+                            <svg class="h-6 w-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                            </svg>
                         </div>
-                        <ul class="list-disc list-inside text-gray-600 ml-4">
-                            <li>Minor: MIS (Management Information Systems) IT</li>
-                            <li>Distinguished member of the university's Tech Society</li>
-                        </ul>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Bachelor of Science in Computer Science</h3>
+                            <p class="text-gray-600">Sadat Academy for Management Sciences</p>
+                            <p class="text-gray-500 mt-1">Minor: Management Information Systems</p>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Skills Section -->
-                <div class="mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Professional Skills</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="glass-card p-6">
-                            <h3 class="text-xl font-semibold text-indigo-600 mb-4">Technical Skills</h3>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="font-medium text-gray-700 mb-2">Frontend Development</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">ReactJS</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">NextJS</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">HTML5</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">CSS3</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Tailwind CSS</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Material UI</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-medium text-gray-700 mb-2">Backend Development</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">NodeJS</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">ExpressJS</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MongoDB</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">SQL</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-medium text-gray-700 mb-2">UI/UX Tools</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Figma</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Adobe XD</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Adobe Photoshop</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-medium text-gray-700 mb-2">Other Tools</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Git</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Jira</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Visual Studio Code</span>
-                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Azure</span>
-                                    </div>
-                                </div>
+                <div class="glass-card p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Skills</h2>
+                    
+                    <!-- Technical Skills -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-indigo-600 mb-4">Technical Skills</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="font-medium text-gray-900 mb-2">Frontend</h4>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>ReactJS / NextJS</li>
+                                    <li>HTML5 / CSS3</li>
+                                    <li>JavaScript / TypeScript</li>
+                                    <li>Tailwind CSS</li>
+                                    <li>Material UI</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="font-medium text-gray-900 mb-2">Backend</h4>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>NodeJS</li>
+                                    <li>ExpressJS</li>
+                                    <li>MongoDB</li>
+                                    <li>SQL</li>
+                                    <li>RESTful APIs</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="font-medium text-gray-900 mb-2">UI/UX Tools</h4>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>Figma</li>
+                                    <li>Adobe XD</li>
+                                    <li>Adobe Photoshop</li>
+                                    <li>Wireframing</li>
+                                    <li>Prototyping</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="font-medium text-gray-900 mb-2">Other Tools</h4>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>Git / GitHub</li>
+                                    <li>Jira</li>
+                                    <li>Azure</li>
+                                    <li>Docker</li>
+                                    <li>CI/CD</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="glass-card p-6">
-                            <h3 class="text-xl font-semibold text-indigo-600 mb-4">Soft Skills</h3>
-                            <ul class="space-y-2">
-                                <li class="flex items-center text-gray-600">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Team Leadership
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Exceptional Communication
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Problem Solving
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Agile Methodologies
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Time Management
-                                </li>
-                                <li class="flex items-center text-gray-600">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Client Relationship Management
-                                </li>
-                            </ul>
+                    </div>
+                    
+                    <!-- Soft Skills -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-indigo-600 mb-4">Soft Skills</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Team Leadership</span>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Communication</span>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Problem Solving</span>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Time Management</span>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Adaptability</span>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Critical Thinking</span>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Creativity</span>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full">Attention to Detail</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Languages Section -->
-                <div class="mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Languages</h2>
-                    <div class="glass-card p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h3 class="text-xl font-semibold text-indigo-600 mb-2">Arabic</h3>
-                                <p class="text-gray-600">Native</p>
+                <div class="glass-card p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Languages</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 100%"></div>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-indigo-600 mb-2">English</h3>
-                                <p class="text-gray-600">Fluent</p>
+                            <span class="ml-4 text-gray-700 min-w-[100px]">Arabic (Native)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 90%"></div>
                             </div>
+                            <span class="ml-4 text-gray-700 min-w-[100px]">English (Fluent)</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Personal Interests Section -->
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Personal Interests</h2>
-                    <div class="glass-card p-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                            <div class="text-center p-4">
-                                <div class="text-4xl text-indigo-600 mb-2">
-                                    <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"/>
-                                    </svg>
-                                </div>
-                                <p class="text-gray-700 font-medium">Technology</p>
+                <div class="glass-card p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Personal Interests</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="bg-indigo-100 rounded-full p-4 inline-flex mb-3">
+                                <svg class="h-8 w-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4.649 3.084A1 1 0 015.163 4.4 13.95 13.95 0 004 10c0 1.993.416 3.886 1.164 5.6a1 1 0 01-1.832.8A15.95 15.95 0 012 10c0-2.274.475-4.44 1.332-6.4a1 1 0 011.317-.516zM12.96 7a3 3 0 00-2.342 1.126l-.328.41-.111-.279A2 2 0 008.323 7H8a1 1 0 000 2h.323l.532 1.33-1.035 1.295a1 1 0 01-.781.375H7a1 1 0 100 2h.039a3 3 0 002.342-1.126l.328-.41.111.279A2 2 0 0011.677 14H12a1 1 0 100-2h-.323l-.532-1.33 1.035-1.295A1 1 0 0112.961 9H13a1 1 0 100-2h-.039zm1.874-2.6a1 1 0 011.833-.8A15.95 15.95 0 0118 10c0 2.274-.475 4.44-1.332 6.4a1 1 0 11-1.832-.8A13.949 13.949 0 0016 10c0-1.993-.416-3.886-1.165-5.6z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
-                            <div class="text-center p-4">
-                                <div class="text-4xl text-indigo-600 mb-2">
-                                    <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.834 9.686l-4.166.575 3.032 2.914-.74 4.139 3.708-1.982 3.708 1.983-.74-4.139 3.032-2.915-4.166-.575-1.834-3.784-1.834 3.784z"/>
-                                    </svg>
-                                </div>
-                                <p class="text-gray-700 font-medium">Design</p>
+                            <h3 class="font-medium text-gray-900">Technology</h3>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-indigo-100 rounded-full p-4 inline-flex mb-3">
+                                <svg class="h-8 w-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
-                            <div class="text-center p-4">
-                                <div class="text-4xl text-indigo-600 mb-2">
-                                    <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/>
-                                    </svg>
-                                </div>
-                                <p class="text-gray-700 font-medium">Coding</p>
+                            <h3 class="font-medium text-gray-900">Design</h3>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-indigo-100 rounded-full p-4 inline-flex mb-3">
+                                <svg class="h-8 w-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
-                            <div class="text-center p-4">
-                                <div class="text-4xl text-indigo-600 mb-2">
-                                    <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/>
-                                    </svg>
-                                </div>
-                                <p class="text-gray-700 font-medium">Innovation</p>
+                            <h3 class="font-medium text-gray-900">Coding</h3>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-indigo-100 rounded-full p-4 inline-flex mb-3">
+                                <svg class="h-8 w-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
+                            <h3 class="font-medium text-gray-900">Innovation</h3>
                         </div>
                     </div>
                 </div>

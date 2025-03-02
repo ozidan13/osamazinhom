@@ -28,6 +28,31 @@
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
+
+    /* Global styles for the entire website */
+    --primary: #4F46E5;
+    --primary-dark: #4338CA;
+    --primary-light: #6366F1;
+    --primary-lighter: #818CF8;
+    --primary-lightest: #A5B4FC;
+    --secondary: #8B5CF6;
+    --secondary-dark: #7C3AED;
+    --text-dark: #1F2937;
+    --text-light: #F9FAFB;
+    --text-muted: #6B7280;
+    --text-muted-light: #9CA3AF;
+    --bg-light: #F3F4F6;
+    --bg-dark: #111827;
+    --bg-card-light: rgba(255, 255, 255, 0.7);
+    --bg-card-dark: rgba(31, 41, 55, 0.7);
+    --border-light: rgba(255, 255, 255, 0.2);
+    --border-dark: rgba(55, 65, 81, 0.2);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-primary: 0 4px 6px rgba(79, 70, 229, 0.2);
+    --shadow-primary-lg: 0 10px 15px rgba(79, 70, 229, 0.3);
 }
 
 /* Global styles */
