@@ -2,14 +2,14 @@ export default function About() {
     return `
         <div class="page min-h-screen py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto">
-                <h1 class="text-4xl font-bold text-indigo-600 mb-8">About Me</h1>
+                <h1 class="text-4xl font-bold text-indigo-600 mb-8 reveal-text">About Me</h1>
                 
                 <!-- Profile Section -->
-                <div class="glass-card p-8 mb-12">
+                <div class="glass-card p-8 mb-12 reveal-text-delay">
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="md:w-1/3">
-                            <div class="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-600 relative">
-                                <img src="./assets/profile.jpg" alt="Osama Zinhom" class="w-full h-full object-cover" />
+                            <div class="aspect-square rounded-xl overflow-hidden bg-transparent">
+                                <img src="./assets/profile.png" alt="Osama Zinhom" class="w-full h-full object-cover" />
                                 <div class="absolute inset-0 gradient-overlay opacity-20"></div>
                             </div>
                         </div>
@@ -51,14 +51,14 @@ export default function About() {
                 </div>
                 
                 <!-- Education Section -->
-                <div class="glass-card p-8 mb-12">
+                <div class="glass-card p-8 mb-12 reveal-text-delay" style="animation-delay: 0.2s;">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Education</h2>
                     <div class="flex items-start">
                         <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-lg">
                             <svg class="h-6 w-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
                             </svg>
                         </div>
                         <div class="ml-4">
@@ -70,7 +70,7 @@ export default function About() {
                 </div>
                 
                 <!-- Skills Section -->
-                <div class="glass-card p-8 mb-12">
+                <div class="glass-card p-8 mb-12 reveal-text-delay" style="animation-delay: 0.4s;">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Skills</h2>
                     
                     <!-- Technical Skills -->
@@ -137,7 +137,7 @@ export default function About() {
                 </div>
                 
                 <!-- Languages Section -->
-                <div class="glass-card p-8 mb-12">
+                <div class="glass-card p-8 mb-12 reveal-text-delay" style="animation-delay: 0.6s;">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Languages</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="flex items-center">
@@ -156,7 +156,7 @@ export default function About() {
                 </div>
                 
                 <!-- Personal Interests Section -->
-                <div class="glass-card p-8">
+                <div class="glass-card p-8 reveal-text-delay" style="animation-delay: 0.8s;">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Personal Interests</h2>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="text-center">

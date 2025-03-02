@@ -30,10 +30,17 @@ function navigateTo(pageName) {
       // Load page-specific styles
       loadPageStyles(pageName);
       
-      // Initialize reveal animations
+      // Initialize reveal animations with a slight delay to ensure DOM is ready
       setTimeout(() => {
         initRevealAnimations();
-      }, 100);
+        initPageSpecificFunctionality(pageName);
+        
+        // Force reveal all elements with reveal classes if they haven't been revealed by the observer
+        const revealElements = document.querySelectorAll('.reveal-text, .reveal-text-delay');
+        revealElements.forEach(element => {
+          element.classList.add('revealed');
+        });
+      }, 300);
       
       // ... existing code ...
     })
@@ -52,22 +59,56 @@ function initRevealAnimations() {
   const revealElements = document.querySelectorAll('.reveal-text, .reveal-text-delay');
   
   if (revealElements.length > 0) {
+    // Create a new IntersectionObserver
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     
+    // Observe each element
     revealElements.forEach(element => {
       observer.observe(element);
     });
   }
 }
 
+// Function to initialize page-specific functionality
+function initPageSpecificFunctionality(pageName) {
+  if (pageName === 'contact') {
+    initContactForm();
+  }
+}
+
+// Function to initialize contact form
+function initContactForm() {
+  const contactForm = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // In a real application, you would send the form data to a server here
+      // For now, we'll just show the success message
+      successMessage.classList.remove('hidden');
+      contactForm.reset();
+      
+      // Hide the success message after 5 seconds
+      setTimeout(() => {
+        successMessage.classList.add('hidden');
+      }, 5000);
+    });
+  }
+}
+
 // Initialize the application when the DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+  // Get the content element
+  window.contentElement = document.getElementById('content');
+  
   // Initial page load
   const initialPath = window.location.hash.slice(1) || 'home';
   navigateTo(initialPath);

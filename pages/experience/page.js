@@ -1,225 +1,113 @@
-import React, { useEffect } from 'react';
-
 export default function Experience() {
-  useEffect(() => {
-    // Reveal animations for text elements
-    const revealElements = document.querySelectorAll('.reveal-text, .reveal-text-delay');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
-    
-    return () => {
-      revealElements.forEach(element => {
-        observer.unobserve(element);
-      });
-    };
-  }, []);
-
   return `
-    <div class="page min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <!-- Header Section -->
-        <div class="text-center mb-16">
-          <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl reveal-text">
-            Work Experience
-          </h1>
-          <p class="mt-5 max-w-xl mx-auto text-xl text-gray-500 reveal-text-delay">
-            Over 5 years of professional experience building innovative web applications and digital solutions.
-          </p>
-        </div>
+    <div class="container mx-auto px-4 py-12">
+      <h1 class="text-4xl font-bold mb-8 reveal-text bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">My Experience</h1>
+      
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full"></div>
         
-        <!-- Timeline Section -->
-        <div class="relative">
-          <!-- Timeline Items -->
-          <div class="timeline-item">
-            <div class="glass-card p-6 rounded-xl shadow-lg">
-              <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                <h2 class="text-2xl font-bold text-gray-900">Microsoft</h2>
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
-                  2024 - Feb 2025
-                </span>
-              </div>
-              <h3 class="text-xl font-semibold text-indigo-600 mb-2">Software Engineer</h3>
-              <p class="text-gray-600 mb-4">
-                Focused on developing AI-powered solutions and scalable web platforms for enterprise clients. Collaborated with cross-functional teams to deliver high-quality software products.
-              </p>
-              <div class="mb-4">
-                <h4 class="text-lg font-medium text-gray-900 mb-2">Key Contributions:</h4>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600">
-                  <li>Optimized enterprise-level dashboards, improving performance by 40%</li>
-                  <li>Designed and implemented RESTful APIs using NodeJS and ExpressJS</li>
-                  <li>Collaborated with international teams across different time zones</li>
+        <!-- Experience items -->
+        <div class="space-y-12">
+          <!-- Experience 1 -->
+          <div class="relative flex flex-col md:flex-row items-center md:items-start">
+            <div class="order-1 md:order-1 md:w-1/2 pr-0 md:pr-8 pb-8 md:pb-0 flex md:justify-end">
+              <div class="glass-card p-6 w-full md:max-w-md reveal-text-delay">
+                <h3 class="text-xl font-semibold mb-2">Senior Software Engineer</h3>
+                <p class="text-indigo-600 dark:text-indigo-400 mb-4">TPS, UK (2023 - Present)</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Leading the development of innovative web applications and services, focusing on scalable architecture and performance optimization.</p>
+                <ul class="text-gray-600 dark:text-gray-300 space-y-2 pl-5 list-disc">
+                  <li>Architected and implemented microservices-based applications</li>
+                  <li>Led a team of 5 developers, implementing Agile methodologies</li>
+                  <li>Reduced application load time by 40% through optimization</li>
+                  <li>Implemented CI/CD pipelines for automated testing and deployment</li>
                 </ul>
               </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">NodeJS</span>
-                <span class="skill-tag">Azure</span>
-                <span class="skill-tag">AI Integration</span>
+            </div>
+            <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-indigo-600 dark:bg-indigo-500 border-4 border-white dark:border-gray-900 z-10"></div>
+            </div>
+            <div class="order-2 md:order-2 md:w-1/2 pl-0 md:pl-8 pt-8 md:pt-0"></div>
+          </div>
+          
+          <!-- Experience 2 -->
+          <div class="relative flex flex-col md:flex-row items-center md:items-start">
+            <div class="order-2 md:order-1 md:w-1/2 pr-0 md:pr-8 pt-8 md:pt-0"></div>
+            <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-purple-600 dark:bg-purple-500 border-4 border-white dark:border-gray-900 z-10"></div>
+            </div>
+            <div class="order-1 md:order-2 md:w-1/2 pl-0 md:pl-8 pb-8 md:pb-0">
+              <div class="glass-card p-6 w-full md:max-w-md reveal-text-delay" style="animation-delay: 0.2s;">
+                <h3 class="text-xl font-semibold mb-2">Full Stack Developer</h3>
+                <p class="text-purple-600 dark:text-purple-400 mb-4">Salem Ventures, Jordan (2020 - 2023)</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Developed and maintained multiple web applications for clients in the finance and e-commerce sectors.</p>
+                <ul class="text-gray-600 dark:text-gray-300 space-y-2 pl-5 list-disc">
+                  <li>Built responsive web applications using React and Node.js</li>
+                  <li>Implemented RESTful APIs and GraphQL endpoints</li>
+                  <li>Integrated payment gateways and third-party services</li>
+                  <li>Optimized database queries and application performance</li>
+                </ul>
               </div>
             </div>
           </div>
           
-          <div class="timeline-item">
-            <div class="glass-card p-6 rounded-xl shadow-lg">
-              <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                <h2 class="text-2xl font-bold text-gray-900">TPS, UK</h2>
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
-                  2023 - Jun 2024
-                </span>
-              </div>
-              <h3 class="text-xl font-semibold text-indigo-600 mb-2">Software Engineer & UI/UX Designer</h3>
-              <p class="text-gray-600 mb-4">
-                Led UX analysis and UI design for high-profile projects. Implemented front-end solutions with ReactJS and NextJS, and developed backend systems with NodeJS and ExpressJS.
-              </p>
-              <div class="mb-4">
-                <h4 class="text-lg font-medium text-gray-900 mb-2">Notable Projects:</h4>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600">
-                  <li><strong>BiteProof</strong> - A food authentication platform</li>
-                  <li><strong>Push Social</strong> - Social media management tool</li>
+          <!-- Experience 3 -->
+          <div class="relative flex flex-col md:flex-row items-center md:items-start">
+            <div class="order-1 md:order-1 md:w-1/2 pr-0 md:pr-8 pb-8 md:pb-0 flex md:justify-end">
+              <div class="glass-card p-6 w-full md:max-w-md reveal-text-delay" style="animation-delay: 0.4s;">
+                <h3 class="text-xl font-semibold mb-2">Frontend Developer</h3>
+                <p class="text-pink-600 dark:text-pink-400 mb-4">Neuss, Jordan (2018 - 2020)</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Focused on creating intuitive and responsive user interfaces for web and mobile applications.</p>
+                <ul class="text-gray-600 dark:text-gray-300 space-y-2 pl-5 list-disc">
+                  <li>Developed UI components using React and Vue.js</li>
+                  <li>Implemented responsive designs with CSS frameworks</li>
+                  <li>Collaborated with UX designers to improve user experience</li>
+                  <li>Conducted cross-browser testing and optimization</li>
                 </ul>
               </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">ReactJS</span>
-                <span class="skill-tag">NextJS</span>
-                <span class="skill-tag">UI/UX Design</span>
-                <span class="skill-tag">ExpressJS</span>
-              </div>
             </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="glass-card p-6 rounded-xl shadow-lg">
-              <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                <h2 class="text-2xl font-bold text-gray-900">Salem Ventures</h2>
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
-                  2022 - Dec 2023
-                </span>
-              </div>
-              <h3 class="text-xl font-semibold text-indigo-600 mb-2">Senior Software Engineer - MERN Stack Developer</h3>
-              <p class="text-gray-600 mb-4">
-                Developed innovative web applications using the MERN stack. Led a team of developers and mentored junior team members.
-              </p>
-              <div class="mb-4">
-                <h4 class="text-lg font-medium text-gray-900 mb-2">Key Projects:</h4>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600">
-                  <li><strong>Salem Ventures Platform</strong> - Company's main product</li>
-                  <li><strong>Trading Socio</strong> - Social trading platform</li>
-                  <li><strong>Salem Foods</strong> - E-commerce solution</li>
-                </ul>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Express</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
-              </div>
+            <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-pink-600 dark:bg-pink-500 border-4 border-white dark:border-gray-900 z-10"></div>
             </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="glass-card p-6 rounded-xl shadow-lg">
-              <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                <h2 class="text-2xl font-bold text-gray-900">Neuss, Jordan</h2>
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
-                  2019 - Dec 2022
-                </span>
-              </div>
-              <h3 class="text-xl font-semibold text-indigo-600 mb-2">Software Engineer - MERN Stack Developer</h3>
-              <p class="text-gray-600 mb-4">
-                Conducted UX analysis and UI design for various applications. Implemented front-end and back-end solutions using the MERN stack.
-              </p>
-              <div class="mb-4">
-                <h4 class="text-lg font-medium text-gray-900 mb-2">Key Projects:</h4>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600">
-                  <li><strong>Neuss Platform</strong> - Company's main product</li>
-                  <li><strong>RoyalRide App</strong> - Transportation solution</li>
-                </ul>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Express</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="glass-card p-6 rounded-xl shadow-lg">
-              <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                <h2 class="text-2xl font-bold text-gray-900">Planning Solutions, Saudi Arabia</h2>
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
-                  2016 - May 2019
-                </span>
-              </div>
-              <h3 class="text-xl font-semibold text-indigo-600 mb-2">Software Engineer - Creative Designer</h3>
-              <p class="text-gray-600 mb-4">
-                Designed the company website and led branding initiatives for clients. Developed web applications and implemented UI/UX designs.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">UI/UX Design</span>
-                <span class="skill-tag">Web Development</span>
-                <span class="skill-tag">Branding</span>
-                <span class="skill-tag">Creative Design</span>
-              </div>
-            </div>
+            <div class="order-2 md:order-2 md:w-1/2 pl-0 md:pl-8 pt-8 md:pt-0"></div>
           </div>
         </div>
+      </div>
+      
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold mb-6 reveal-text bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">Education & Certifications</h2>
         
-        <!-- Skills Section -->
-        <div class="mt-20 skills-section">
-          <h2 class="text-3xl font-bold text-gray-900 text-center mb-10">Skills Gained Through Experience</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Education -->
+          <div class="glass-card p-6 reveal-text-delay">
+            <h3 class="text-xl font-semibold mb-4">Education</h3>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-indigo-600 dark:text-indigo-400">Master of Science in Computer Science</h4>
+                <p class="text-gray-700 dark:text-gray-300">University of Jordan, 2018</p>
+              </div>
+              <div>
+                <h4 class="font-medium text-indigo-600 dark:text-indigo-400">Bachelor of Science in Software Engineering</h4>
+                <p class="text-gray-700 dark:text-gray-300">Jordan University of Science and Technology, 2016</p>
+              </div>
+            </div>
+          </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Technical Expertise -->
-            <div class="glass-card p-6 rounded-xl shadow-lg skill-category">
-              <h3 class="text-xl font-semibold text-indigo-600 mb-4">Technical Expertise</h3>
-              <div class="flex flex-wrap">
-                <span class="skill-tag">Full-stack MERN Development</span>
-                <span class="skill-tag">UI/UX Design Principles</span>
-                <span class="skill-tag">Database Architecture</span>
-                <span class="skill-tag">API Development</span>
-                <span class="skill-tag">Cloud Services (AWS, Azure)</span>
-                <span class="skill-tag">CI/CD Pipelines</span>
-                <span class="skill-tag">Microservices</span>
+          <!-- Certifications -->
+          <div class="glass-card p-6 reveal-text-delay" style="animation-delay: 0.2s;">
+            <h3 class="text-xl font-semibold mb-4">Certifications</h3>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-indigo-600 dark:text-indigo-400">AWS Certified Solutions Architect</h4>
+                <p class="text-gray-700 dark:text-gray-300">Amazon Web Services, 2022</p>
               </div>
-            </div>
-            
-            <!-- Project Management -->
-            <div class="glass-card p-6 rounded-xl shadow-lg skill-category">
-              <h3 class="text-xl font-semibold text-indigo-600 mb-4">Project Management</h3>
-              <div class="flex flex-wrap">
-                <span class="skill-tag">Agile Methodologies</span>
-                <span class="skill-tag">Team Leadership</span>
-                <span class="skill-tag">Client Communication</span>
-                <span class="skill-tag">Project Planning</span>
-                <span class="skill-tag">Resource Allocation</span>
-                <span class="skill-tag">Risk Management</span>
-                <span class="skill-tag">Stakeholder Management</span>
+              <div>
+                <h4 class="font-medium text-indigo-600 dark:text-indigo-400">Professional Scrum Master I (PSM I)</h4>
+                <p class="text-gray-700 dark:text-gray-300">Scrum.org, 2021</p>
               </div>
-            </div>
-            
-            <!-- Industry Knowledge -->
-            <div class="glass-card p-6 rounded-xl shadow-lg skill-category">
-              <h3 class="text-xl font-semibold text-indigo-600 mb-4">Industry Knowledge</h3>
-              <div class="flex flex-wrap">
-                <span class="skill-tag">E-commerce Solutions</span>
-                <span class="skill-tag">Financial Platforms</span>
-                <span class="skill-tag">AI Integration</span>
-                <span class="skill-tag">Mobile Application Design</span>
-                <span class="skill-tag">Enterprise Software</span>
-                <span class="skill-tag">SaaS Products</span>
-                <span class="skill-tag">Digital Transformation</span>
+              <div>
+                <h4 class="font-medium text-indigo-600 dark:text-indigo-400">MongoDB Certified Developer</h4>
+                <p class="text-gray-700 dark:text-gray-300">MongoDB, 2020</p>
               </div>
             </div>
           </div>

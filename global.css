@@ -178,3 +178,90 @@ input:focus, textarea:focus, select:focus {
     box-shadow: 0 12px 48px var(--glass-shadow);
 }
 
+/* Mobile Menu Styles */
+.mobile-menu-hidden {
+    display: none;
+}
+
+.mobile-menu-visible {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#mobileMenu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#mobileMenu a:hover, 
+#mobileMenu a:focus {
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.dark #mobileMenu a {
+    background: rgba(17, 24, 39, 0.3);
+}
+
+.dark #mobileMenu a:hover,
+.dark #mobileMenu a:focus {
+    background: rgba(79, 70, 229, 0.2);
+    color: var(--primary-lighter);
+}
+
+/* Mobile menu button animation */
+#mobileMenuButton svg {
+    transition: transform 0.3s ease;
+}
+
+#mobileMenuButton:hover svg {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    nav .container {
+        padding: 0.5rem 1rem;
+    }
+    
+    #mobileMenu a {
+        font-size: 1.1rem;
+    }
+}
+
+/* Global reveal animations */
+.reveal-text, .reveal-text-delay {
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    filter: blur(10px);
+}
+
+.reveal-text.revealed, .reveal-text-delay.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.reveal-text-delay {
+    transition-delay: 0.2s;
+}
+
+/* Ensure content is visible even if animations fail */
+body.js-loading .reveal-text,
+body.js-loading .reveal-text-delay {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
