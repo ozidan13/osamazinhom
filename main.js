@@ -101,7 +101,30 @@ function initRevealAnimations() {
 // Function to initialize page-specific functionality
 function initPageSpecificFunctionality(pageName) {
   if (pageName === 'contact') {
-    initContactForm();
+    console.log('Initializing contact page functionality...');
+    
+    // First, check if EmailJS script is already in the document
+    const existingScript = document.querySelector('script[src*="emailjs"]');
+    if (existingScript) {
+      console.log('EmailJS script already exists in the document');
+    }
+    
+    // Initialize contact form functionality
+    import('./pages/contact/page.js')
+      .then(module => {
+        console.log('Contact page module loaded successfully');
+        if (typeof module.initEmailJS === 'function') {
+          console.log('Calling initEmailJS function');
+          module.initEmailJS();
+        } else {
+          console.warn('initEmailJS function not found in module, falling back to basic form');
+          initContactForm();
+        }
+      })
+      .catch(error => {
+        console.error('Error initializing contact form:', error);
+        initContactForm();
+      });
   }
 }
 
