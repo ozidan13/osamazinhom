@@ -36,7 +36,7 @@ export default function HomePage() {
                                 <span class="hero-subtitle block text-gray-600 dark:text-gray-300 text-2xl mt-3 blue-glow-text">Senior Software Engineer</span>
                             </h1>
                             <p class="hero-description mt-3 text-base text-gray-500 dark:text-gray-400 sm:text-lg md:mt-5 md:text-xl">
-                                Results-driven Senior Software Engineer with over <span class="blue-glow-text">5 years of expertise</span> in developing intuitive, 
+                                Results-driven Senior Software Engineer with over <span class="blue-glow-text">7 years of expertise</span> in developing intuitive, 
                                 user-friendly, and scalable web applications. Adept at using modern technologies like <span class="blue-glow-text">MERN Stack</span>, 
                                 <span class="blue-glow-text">UI/UX design</span>, and <span class="blue-glow-text">cloud-based solutions</span>.
                             </p>
