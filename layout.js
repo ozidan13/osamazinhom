@@ -145,6 +145,7 @@ export function Layout(content, pages = []) {
     `;
 }
 
+
 // Initialize layout and routing
 async function initializeApp() {
     const root = document.getElementById('root');
