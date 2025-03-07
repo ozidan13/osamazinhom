@@ -149,7 +149,7 @@ export function Layout(content, pages = []) {
 // Initialize layout and routing
 async function initializeApp() {
     const root = document.getElementById('root');
-    const pages = ['/', '/about', '/projects', '/contact'];
+    const pages = ['/', '/about', '/projects', '/experience', '/contact'];
 
     // Add a class to the body to indicate JS is loading
     document.body.classList.add('js-loading');
